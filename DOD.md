@@ -1,0 +1,4 @@
+- Peer Review
+- Ingen stavefejl
+- Ingen kendte fejl
+- Commited til dev branch med beskrivende besked
