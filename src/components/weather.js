@@ -2,16 +2,21 @@
 
 import { useEffect, useState } from 'react'
 
-export default function Weather(lat, lon) {
+export default function Weather() {
     const [location, setLocation] = useState({})
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(async (position) => {
-            const apiKey = '9c084fb2105a8455487eb0840db99b00'
-            const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`)
+            const openweatherKey = '9c084fb2105a8455487eb0840db99b00'
+            let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${openweatherKey}`);
             const data = await res.json()
 
-            console.log(data);
+            const googleRes = await fetch(`https://translation.googleapis.com/language/translate/v2?key=AIzaSyDePTbsGD1WKw81tq6HM3s_tIlb8QoHbNw&q=${data.weather[0].description}&target=da`)
+            const googleData = await googleRes.json()
+            
+            data.weather[0].description = googleData.data.translations[0].translatedText
+
+            console.log(data.weather[0].main);
 
             setLocation(data)
         });
