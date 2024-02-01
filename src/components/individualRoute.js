@@ -9,11 +9,13 @@ export default function IndividualRoute({ id, delay, arrival, departure }) {
 
     useEffect(() => {
         (async () => {
-            await animate([
-                [scope.current, { width: '500%' }, { duration: unixInSeconds(arrival) }],
-                [scope.current, { backgroundColor: '#34b233' }, { delay: 1 }]
-            ])
-
+            await animate("0%", "510%", {
+                duration: unixInSeconds(arrival),
+                onUpdate: update => scope.current.style.width = update,
+                onComplete: () => {
+                    scope.current.style.backgroundColor = '#34b233'
+                }
+            })
             //await scope.current.parentElement.parentElement.remove()
         })()
     }, [])
@@ -23,7 +25,7 @@ export default function IndividualRoute({ id, delay, arrival, departure }) {
             <td className="h-[8vh]">
                 <span className="fixed flex justify-center items-center h-1/5 w-[8%] text-4xl font-medium">{id}</span>
                 <motion.div
-                    className='-z-10 h-full w-0 bg-neutral-100'
+                    className='-z-10 h-[8vh] w-0 bg-neutral-100'
                     ref={scope}
                 />
             </td>
