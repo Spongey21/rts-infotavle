@@ -14,8 +14,8 @@ export default function Transport() {
                 </tr>
             </thead>
             <tbody>
-                <IndividualRoute id='201A' delay='0' arrival='12:10' departure='9:50' />
-                <IndividualRoute id='201A' delay='0' arrival='12:10' departure='9:50' />
+                <IndividualRoute id='201A' delay='0' arrival='12:12' departure='9:50' />
+                <IndividualRoute id='201A' delay='0' arrival='12:12' departure='9:50' />
             </tbody>
         </table>
     );

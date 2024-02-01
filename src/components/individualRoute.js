@@ -9,7 +9,6 @@ export default function IndividualRoute({ id, delay, arrival, departure }) {
 
     useEffect(() => {
         (async () => {
-            console.log(unixTime(arrival));
             await animate([
                 [scope.current, { width: '500%' }, { duration: unixInSeconds(arrival) }],
                 [scope.current, { backgroundColor: '#34b233' }, { delay: 1 }]
