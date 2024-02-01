@@ -1,5 +1,6 @@
 "use client"
 
+import { unixInSeconds } from "@/app/handlers/calcTime"
 import { motion, useAnimate } from "framer-motion"
 import { useEffect } from "react"
 
@@ -8,10 +9,10 @@ export default function IndividualRoute({ id, delay, arrival, departure }) {
 
     useEffect(() => {
         (async () => {
+            console.log(unixTime(arrival));
             await animate([
-                [scope.current, { width: '300%' }, { duration: 2 }],
-                [scope.current, { width: '500%' }, { duration: 2 }],
-                [scope.current, { backgroundColor: '#34b233' }]
+                [scope.current, { width: '500%' }, { duration: unixInSeconds(arrival) }],
+                [scope.current, { backgroundColor: '#34b233' }, { delay: 1 }]
             ])
 
             //await scope.current.parentElement.parentElement.remove()
@@ -30,13 +31,13 @@ export default function IndividualRoute({ id, delay, arrival, departure }) {
             <td className="h-[8vh] text-4xl font-medium">{delay}</td>
             <td className="h-[8vh] font-medium">
                 <div className='flex flex-col'>
-                    <span className='text-4xl'>9:28</span>
+                    <span className='text-4xl'>{arrival}</span>
                     <span className='text-sm'>Pulsen 8, Roskilde</span>
                 </div>
             </td>
             <td className="h-[8vh] text-4xl font-medium">
                 <div className='flex flex-col'>
-                    <span className='text-4xl'>9:45</span>
+                    <span className='text-4xl'>{departure}</span>
                     <span className='text-sm'>Roskilde St</span>
                 </div>
             </td>
