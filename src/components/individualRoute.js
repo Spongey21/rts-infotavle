@@ -25,7 +25,7 @@ export default function IndividualRoute({ id, delay, arrival, departure }) {
             <td className="h-[8vh]">
                 <span className="fixed flex justify-center items-center h-1/5 w-[8%] text-4xl font-medium">{id}</span>
                 <motion.div
-                    className='-z-10 h-[8vh] w-0 bg-neutral-100'
+                    className='-z-10 h-full w-0 bg-neutral-100'
                     ref={scope}
                 />
             </td>
