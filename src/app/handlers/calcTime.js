@@ -9,7 +9,7 @@ function getRealDate(day) {
 
 export function unixInSeconds(time) {
     const today = new Date()
-    const arrival = new Date(`${today.getFullYear()}-${getRealMonth(today.getMonth())}-${getRealDate(today.getDate())}T${time}:00+01:00`)
+    const arrival = new Date(`${today.getFullYear()}-${getRealMonth(today.getMonth())}-${getRealDate(today.getDate())}T${getRealDate(time.split(':')[0])}:${time.split(':')[1]}:00+01:00`)
 
     return Math.floor((arrival.getTime() - today.getTime()) / 1000)
 }   
