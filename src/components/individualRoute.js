@@ -9,39 +9,33 @@ export default function IndividualRoute({ id, delay, arrival, departure }) {
 
     useEffect(() => {
         (async () => {
-            await animate("0%", "510%", {
-                duration: unixInSeconds(arrival),
-                onUpdate: update => scope.current.style.width = update,
-                onComplete: () => {
-                    scope.current.style.backgroundColor = '#34b233'
-                }
-            })
-            //await scope.current.parentElement.parentElement.remove()
+            await animate([
+                [scope.current, {background: `linear-gradient(to right, rgb(245 245 245) 100%, white 100%)`}, {duration: unixInSeconds(arrival)}],
+                [scope.current, {background: '#34b233'}, {duration: 0.75}],
+                [scope.current, {border: 'none'}],
+                [scope.current, {opacity: 0}, {duration: 0.5}]
+            ])
+
+            await scope.current.remove()
         })()
     }, [])
 
     return (
-        <tr className="text-center border-2">
-            <td className="h-[8vh]">
-                <span className="fixed flex justify-center items-center h-1/5 w-[8%] text-4xl font-medium">{id}</span>
-                <motion.div
-                    className='-z-10 h-full w-0 bg-neutral-100'
-                    ref={scope}
-                />
-            </td>
-            <td className="h-[8vh] text-4xl font-medium">{delay}</td>
-            <td className="h-[8vh] font-medium">
-                <div className='flex flex-col'>
-                    <span className='text-4xl'>{arrival}</span>
-                    <span className='text-sm'>Pulsen 8, Roskilde</span>
+        <motion.tr className="text-center border-2 bg-neutral-100 h-[14vh]" ref={scope}>
+            <td className="text-4xl font-medium">{id}</td>
+            <td className="text-4xl font-medium">{delay}</td>
+            <td className="font-medium">
+                <div className="flex flex-col">
+                    <span className="text-4xl">{arrival}</span>
+                    <span className="text-sm">Pulsen 8, Roskilde</span>
                 </div>
             </td>
-            <td className="h-[8vh] text-4xl font-medium">
-                <div className='flex flex-col'>
-                    <span className='text-4xl'>{departure}</span>
-                    <span className='text-sm'>Roskilde St</span>
+            <td className="font-medium">
+                <div className="flex flex-col">
+                    <span className="text-4xl">{departure}</span>
+                    <span className="text-sm">Sygehuset</span>
                 </div>
             </td>
-        </tr>
+        </motion.tr>
     )
 }
