@@ -1,8 +1,25 @@
 "use client"
 
+import { useEffect, useState } from "react";
 import IndividualRoute from "./individualRoute";
 
 export default function Transport() {
+    const [transport, setTransport] = useState([])
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch(`//xmlopen.rejseplanen.dk/bin/rest.exe/location?input=Roskilde St&format=json`)
+            const data = await res.json()
+
+            const departureFetch = await fetch(`//xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=${data.LocationList.StopLocation[0].id}&format=json`);
+            const departureData = await departureFetch.json()
+
+            setTransport(departureData.DepartureBoard.Departure.filter(bus => {
+                if (bus.name == 'Bus 202A') { return { bus } }
+            }))
+        })()
+    }, [])
+
     return (
         <table className="w-full">
             <thead>
@@ -14,9 +31,13 @@ export default function Transport() {
                 </tr>
             </thead>
             <tbody>
-                <IndividualRoute id='201A' delay='0' arrival='13:59' departure='9:50' />
-                <IndividualRoute id='201A' delay='0' arrival='14:01' departure='9:50' />
-                <IndividualRoute id='201A' delay='0' arrival='14:22' departure='9:50' />
+                <IndividualRoute
+                    id={transport[0] && transport[0].name.replace('Bus ', '')}
+                    delay='0'
+                    arrTime={transport[2] && transport[2].time}
+                    arrDest={transport[0] && transport[0].direction}
+                    depTime={transport[2] && transport[2].time.replace(transport[2].time.split(':')[1], parseInt(transport[2].time.split(':')[1]) + 10)}
+                    depDest={transport[0] && transport[0].stop} />
             </tbody>
         </table>
     );
