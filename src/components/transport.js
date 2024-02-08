@@ -21,21 +21,22 @@ export default function Transport() {
     }, [])
 
     return (
-        <article className="w-full h-1/0 bg-black">
-            <ul className="h-1/4 bg-neutral-100 text-gray-500 border-0 flex justify-around items-center">
-                <li className="text-0xl text-center font-medium uppercase">#</li>
-                <li className="text-0xl text-center font-medium uppercase">afgang</li>
-                <li className="text-0xl text-center font-medium uppercase">ankomst</li>
+        <article className="w-full h-1/2">
+            <ul className="h-1/4 bg-neutral-100 text-gray-500 border-2 flex items-center">
+                <li className="text-3xl text-center font-medium uppercase w-1/3">#</li>
+                <li className="text-3xl text-center font-medium uppercase w-1/3">afgang</li>
+                <li className="text-3xl text-center font-medium uppercase w-1/3">ankomst</li>
             </ul>
             {transport.map((route, i) => {
                 if (i > 2) return
 
                 return <IndividualRoute
-                    id={route && route.name.replace('Bus ', '')}
+                    key={i + route.id}
+                    id={route && route.line}
                     arrTime={route && route.time}
                     arrDest={route && route.direction}
                     depTime={route && route.time.replace(route.time.split(':')[1], parseInt(route.time.split(':')[1]) + 10)}
-                    depDest={route && route.stop} />
+                    depDest={route && route.stop.split('.')[0]} />
             })}
         </article>
     )
