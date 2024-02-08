@@ -21,24 +21,18 @@ export default function Transport() {
     }, [])
 
     return (
-        <table className="w-full">
-            <thead>
-                <tr className="bg-neutral-100 text-gray-500 uppercase h-[8vh] border-2">
-                    <th className="text-2xl text-center font-medium">#</th>
-                    <th className="text-2xl text-center font-medium">forsinkelse</th>
-                    <th className="text-2xl text-center font-medium">afgang</th>
-                    <th className="text-2xl text-center font-medium">ankomst</th>
-                </tr>
-            </thead>
-            <tbody>
-                <IndividualRoute
-                    id={transport[0] && transport[0].name.replace('Bus ', '')}
-                    delay='0'
-                    arrTime={transport[2] && transport[2].time}
-                    arrDest={transport[0] && transport[0].direction}
-                    depTime={transport[2] && transport[2].time.replace(transport[2].time.split(':')[1], parseInt(transport[2].time.split(':')[1]) + 10)}
-                    depDest={transport[0] && transport[0].stop} />
-            </tbody>
-        </table>
-    );
+        <article className="w-full h-1/0 bg-black">
+            <ul className="h-1/4 bg-neutral-100 text-gray-500 border-0 flex justify-around items-center">
+                <li className="text-0xl text-center font-medium uppercase">#</li>
+                <li className="text-0xl text-center font-medium uppercase">afgang</li>
+                <li className="text-0xl text-center font-medium uppercase">ankomst</li>
+            </ul>
+            <IndividualRoute
+                id={transport[0] && transport[0].name.replace('Bus ', '')}
+                arrTime={transport[0] && transport[0].time}
+                arrDest={transport[0] && transport[0].direction}
+                depTime={transport[0] && transport[0].time.replace(transport[0].time.split(':')[1], parseInt(transport[0].time.split(':')[1]) + 10)}
+                depDest={transport[0] && transport[0].stop} />
+        </article>
+    )
 }
