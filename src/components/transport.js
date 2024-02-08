@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import IndividualRoute from "./individualRoute";
+import { unixInSeconds } from "@/app/handlers/calcTime";
 
 export default function Transport() {
     const [transport, setTransport] = useState([])
@@ -28,8 +29,9 @@ export default function Transport() {
                 <li className="text-3xl text-center font-medium uppercase w-1/3">ankomst</li>
             </ul>
             {transport.map((route, i) => {
-                if (i > 2) return
+                if (i > 2 && unixInSeconds(route.time) > 0) return
 
+                
                 return <IndividualRoute
                     key={i + route.id}
                     id={route && route.line}
