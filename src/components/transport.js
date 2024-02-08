@@ -27,12 +27,16 @@ export default function Transport() {
                 <li className="text-0xl text-center font-medium uppercase">afgang</li>
                 <li className="text-0xl text-center font-medium uppercase">ankomst</li>
             </ul>
-            <IndividualRoute
-                id={transport[0] && transport[0].name.replace('Bus ', '')}
-                arrTime={transport[0] && transport[0].time}
-                arrDest={transport[0] && transport[0].direction}
-                depTime={transport[0] && transport[0].time.replace(transport[0].time.split(':')[1], parseInt(transport[0].time.split(':')[1]) + 10)}
-                depDest={transport[0] && transport[0].stop} />
+            {transport.map((route, i) => {
+                if (i > 2) return
+
+                return <IndividualRoute
+                    id={route && route.name.replace('Bus ', '')}
+                    arrTime={route && route.time}
+                    arrDest={route && route.direction}
+                    depTime={route && route.time.replace(route.time.split(':')[1], parseInt(route.time.split(':')[1]) + 10)}
+                    depDest={route && route.stop} />
+            })}
         </article>
     )
 }
