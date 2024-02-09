@@ -9,9 +9,11 @@ export default function Transport() {
 
     useEffect(() => {
         (async () => {
+            // fetches location id
             const res = await fetch(`//xmlopen.rejseplanen.dk/bin/rest.exe/location?input=Musicon (Maglelunden)&format=json`)
             const data = await res.json()
 
+            // fetches route information
             const departureFetch = await fetch(`//xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=${data.LocationList.StopLocation[0].id}&format=json`);
             const departureData = await departureFetch.json()
 
