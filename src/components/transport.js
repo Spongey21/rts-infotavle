@@ -9,7 +9,7 @@ export default function Transport() {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`//xmlopen.rejseplanen.dk/bin/rest.exe/location?input=Roskilde St&format=json`)
+            const res = await fetch(`//xmlopen.rejseplanen.dk/bin/rest.exe/location?input=Musicon (Maglelunden)&format=json`)
             const data = await res.json()
 
             const departureFetch = await fetch(`//xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=${data.LocationList.StopLocation[0].id}&format=json`);
@@ -33,14 +33,13 @@ export default function Transport() {
             {transport.map((route, i) => {
                 if (i > 2 && unixInSeconds(route.time) > 0) return
 
-
                 return <li key={i + route.id} className="h-1/4 bg-neutral-100 text-gray-500 border-2">
                     <IndividualRoute
-                    id={route && route.line}
-                    arrTime={route && route.time}
-                    arrDest={route && route.direction}
-                    depTime={route && route.time.replace(route.time.split(':')[1], parseInt(route.time.split(':')[1]) + 10)}
-                    depDest={route && route.stop.split('.')[0]} />
+                        id={route && route.line}
+                        arrTime={route && route.time}
+                        arrDest={route && route.direction}
+                        depTime={route && route.time.replace(route.time.split(':')[1], parseInt(route.time.split(':')[1]) + 10)}
+                        depDest={route && route.stop.includes('.') ? route.stop.split('.')[0] : route.stop.split('(')[0]} />
                 </li>
             })}
         </ul>
