@@ -25,7 +25,7 @@ export default function Transport() {
 
     return (
         <ul className="w-full h-1/2">
-            <li className="h-1/4 bg-neutral-100 text-gray-500 border-2">
+            <li className="h-1/4 bg-[#bfb6a7] text-black border-2`">
                 <section className="flex items-center w-full h-full">
                     <span className="text-3xl text-center font-medium uppercase w-1/3">#</span>
                     <span className="text-3xl text-center font-medium uppercase w-1/3">afgang</span>
@@ -35,7 +35,7 @@ export default function Transport() {
             {transport.map((route, i) => {
                 if (i > 2 && unixInSeconds(route.time) > 0) return
 
-                return <li key={i + route.id} className="h-1/4 bg-neutral-100 text-gray-500 border-2">
+                return <li key={i + route.id} className="h-1/4 border-2">
                     <IndividualRoute
                         id={route && route.line}
                         arrTime={route && route.time}

@@ -10,20 +10,14 @@ export default function IndividualRoute({ id, arrTime, arrDest, depTime, depDest
     useEffect(() => {
         (async () => {
             // progress slider from left to right
-            await animate("0%", "100%", {
+            await animate(0, 100, {
                 duration: unixInSeconds(arrTime),
-                onUpdate: update => {
+                onUpdate: length => {
                     // updates progress slider
-                    scope.current.style.background = `linear-gradient(to right, rgb(245,245,245) ${update}, white ${update})`
+                    scope.current.style.background = `linear-gradient(to right, #bfb6a7 ${length}%, white ${length}%)`
                 },
                 onComplete: async () => {
                     scope.current.parentElement.style.border = 'none'
-
-                    // changes color of route
-                    await animate('rgb(245,245,245)', 'rgb(0,0,0)', {
-                        duration: 0.5,
-                        onUpdate: color => console.log(color)
-                    })
 
                     // collapses route with animation
                     await animate(parseInt(scope.current.parentElement.offsetHeight), 0, {
