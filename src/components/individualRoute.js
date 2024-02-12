@@ -11,7 +11,7 @@ export default function IndividualRoute({ id, arrTime, arrDest, depTime, depDest
         (async () => {
             // progress slider from left to right
             await animate(0, 102, {
-                duration: 5,
+                duration: unixInSeconds(arrTime),
                 onUpdate: length => {
                     // updates progress slider
                     scope.current.style.background = `linear-gradient(to right, rgb(51,65,85) ${length / 1.02}%, rgb(0,0,0) ${length}%, black ${length}%)`
