@@ -14,7 +14,7 @@ export default function IndividualRoute({ id, arrTime, arrDest, depTime, depDest
                 duration: unixInSeconds(arrTime),
                 onUpdate: length => {
                     // updates progress slider
-                    scope.current.style.background = `linear-gradient(to right, rgb(51,65,85) ${length / 2}%, rgb(0,0,0) ${length}%, #1C1C1C ${length}%)`
+                    scope.current.style.background = `linear-gradient(to right, rgb(51,65,85) ${length / 2}%, rgb(0,0,0) ${length}%, black ${length}%)`
                 },
                 onComplete: async () => {
                     scope.current.parentElement.style.border = 'none'
@@ -35,7 +35,7 @@ export default function IndividualRoute({ id, arrTime, arrDest, depTime, depDest
     }, [arrTime])
 
     return (
-        <motion.article className="flex items-center justify-center w-full h-full text-gray-300" ref={scope}>
+        <motion.article className="flex items-center justify-center w-full h-full text-gray-300 border-2" ref={scope}>
             <h1 className="text-4xl text-center w-1/3">{id}</h1>
             <div className="flex flex-col items-center justify-center w-1/3">
                 <span className="text-4xl text-center">{arrTime}</span>
