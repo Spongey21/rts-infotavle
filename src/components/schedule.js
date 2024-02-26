@@ -1,4 +1,31 @@
+import ClassSchedule from "./classSchedule"
+
 export default function Transport() {
+    return (
+        <article className="w-3/5 h-full">
+            <ul className="flex w-full h-full bg-blue-300 capitalize">
+                <li className="w-1/6 h-full">
+                    <ClassSchedule />
+                </li>
+                <li className="w-1/6 h-full">
+                    <ClassSchedule />
+                </li>
+                <li className="w-1/6 h-full">
+                    <ClassSchedule />
+                </li>
+                <li className="w-1/6 h-full">
+                    <ClassSchedule />
+                </li>
+                <li className="w-1/6 h-full">
+                    <ClassSchedule />
+                </li>
+                <li className="w-1/6 h-full">
+                    <ClassSchedule />
+                </li>
+            </ul>
+        </article>
+    )
+
     return (
         <article className="w-3/5 h-full">
             <ul className="border-2 border-black h-full bg-gradient-to-br from-slate-700 from-30% to-black to-70% text-gray-300">
