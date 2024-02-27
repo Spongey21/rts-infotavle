@@ -94,9 +94,9 @@ export default function ClassSchedule({ course }) {
     if (schedule.length == 0) return
 
     return (
-        <li className="basis-full h-full border-r-2 border-[#36393b]">
+        <li className="basis-full h-full">
             <section className="flex flex-col items-center text-center h-full" style={{backgroundColor: key.color + '66'}}>
-                <div className="flex flex-col justify-center text-white bg-[#36393B] w-full h-1/6">
+                <div className="flex flex-col justify-center text-white bg-blue-950 w-full h-1/6">
                     <span className="text-3xl font-bold uppercase">{key.abbreviation}</span>
                     <span className="text-1xl font-bold capitalize">{key.name}</span>
                 </div>

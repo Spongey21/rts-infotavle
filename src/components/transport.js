@@ -25,7 +25,7 @@ export default function Transport() {
 
     return (
         <ul className="w-full h-1/2">
-            <li className="h-1/4 bg-blue-950 text-white border-b-2 border-[#36393B]">
+            <li className="h-1/3 bg-blue-950 text-white border-white">
                 <section className="flex items-center gap-10 w-full h-full">
                     <span className="text-3xl text-center font-medium uppercase w-1/3">#</span>
                     <span className="text-3xl text-center font-medium uppercase w-1/3">afgang</span>
