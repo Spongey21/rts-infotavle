@@ -4,7 +4,7 @@ import { unixInSeconds } from "@/app/handlers/calcTime"
 import { motion, useAnimate } from "framer-motion"
 import { useEffect } from "react"
 
-export default function IndividualRoute({ id, arrTime, arrDest, depTime, depDest }) {
+export default function IndividualRoute({ id, arrTime, arrDest }) {
     const [scope, animate] = useAnimate()
 
     useEffect(() => {
@@ -39,8 +39,8 @@ export default function IndividualRoute({ id, arrTime, arrDest, depTime, depDest
     return (
         <motion.article className="flex items-center justify-center w-full h-full text-black border-b-2 border-blue-950" ref={scope}>
             <h1 className="text-4xl text-center w-1/3">{id}</h1>
-                <span className="text-3xl text-center w-1/3">{arrTime}</span>
-                <span className="text-3xl text-center w-1/3">{arrDest.split(',')[0]}</span>
+                <span className="text-4xl text-center w-1/3">{arrTime}</span>
+                <span className="text-4xl text-center w-1/3">{arrDest.split(',')[0]}</span>
         </motion.article>
     )
 }
