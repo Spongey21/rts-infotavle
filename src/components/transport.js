@@ -29,14 +29,14 @@ export default function Transport() {
                 <section className="flex items-center w-full">
                     <img src="https://images.vexels.com/media/users/3/128933/isolated/preview/b54944f7322722034cfda55e601b4f8d-travel-bus-round-icon.png" height={80} width={80}></img>
                     <div className="flex flex-col">
-                        <h2 className="text-4xl text-blue-950">Bus Afgange</h2>
-                        <h2 className="text-lg">Teknisk Skole, HTX (Maglelunden)</h2>
-                    </div>
+                        <h2 className="text-4xl text-blue-950 font-bold">Bus Afgange</h2>
+                        <h2 className="text-lg font-bold">Teknisk Skole, HTX (Maglelunden)</h2>
+                    </div>s
                 </section>
                 <section className="flex items-center w-full h-full bg-blue-950 text-white">
-                    <h2 className="text-3xl text-center font-medium uppercase w-1/3">#</h2>
-                    <h2 className="text-3xl text-center font-medium uppercase w-1/3">afgang</h2>
-                    <h2 className="text-3xl text-center font-medium uppercase w-1/3">destination</h2>
+                    <h2 className="text-3xl text-center font-bold uppercase w-1/3">#</h2>
+                    <h2 className="text-3xl text-center font-bold uppercase w-1/3">afgang</h2>
+                    <h2 className="text-3xl text-center font-bold uppercase w-1/3">destination</h2>
                 </section>
             </li>
             {transport.map((route, i) => {
@@ -46,9 +46,7 @@ export default function Transport() {
                     <IndividualRoute
                         id={route && route.line}
                         arrTime={route && route.time}
-                        arrDest={route && route.direction}
-                        depTime={route && route.time.replace(route.time.split(':')[1], parseInt(route.time.split(':')[1]) + 10)}
-                        depDest={route && route.stop.includes('.') ? route.stop.split('.')[0] : route.stop.split('(')[0]} />
+                        arrDest={route && route.direction}/>
                 </li>
             })}
         </ul>
