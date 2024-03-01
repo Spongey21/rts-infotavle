@@ -25,7 +25,7 @@ export default function Transport() {
 
     return (
         <ul className="w-full h-1/2">
-            <li className="flex flex-col justify-end h-1/2 border-white">
+            <li className="flex flex-col border-white">
                 <section className="flex items-center w-full">
                     <img src="https://images.vexels.com/media/users/3/128933/isolated/preview/b54944f7322722034cfda55e601b4f8d-travel-bus-round-icon.png" height={80} width={80}></img>
                     <div className="flex flex-col">
@@ -33,7 +33,7 @@ export default function Transport() {
                         <h2 className="text-lg font-bold">Teknisk Skole, HTX (Maglelunden)</h2>
                     </div>s
                 </section>
-                <section className="flex items-center w-full h-1/2 bg-blue-950 text-white">
+                <section className="flex items-center h-full w-full bg-blue-950 text-white">
                     <h2 className="text-3xl text-center uppercase w-1/3">#</h2>
                     <h2 className="text-3xl text-center uppercase w-1/3">afgang</h2>
                     <h2 className="text-3xl text-center uppercase w-1/3">destination</h2>
