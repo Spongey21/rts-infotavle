@@ -25,11 +25,18 @@ export default function Transport() {
 
     return (
         <ul className="w-full h-1/2">
-            <li className="h-1/3 bg-blue-950 text-white border-white">
-                <section className="flex items-center gap-10 w-full h-full">
-                    <span className="text-3xl text-center font-medium uppercase w-1/3">#</span>
-                    <span className="text-3xl text-center font-medium uppercase w-1/3">afgang</span>
-                    <span className="text-3xl text-center font-medium uppercase w-1/3">ankomst</span>
+            <li className="flex flex-col justify-end h-1/3 border-white">
+                <section className="flex items-center w-full">
+                    <img src="https://images.vexels.com/media/users/3/128933/isolated/preview/b54944f7322722034cfda55e601b4f8d-travel-bus-round-icon.png" height={80} width={80}></img>
+                    <div className="flex flex-col">
+                        <h2 className="text-4xl text-blue-950">Bus Afgange</h2>
+                        <h2 className="text-lg">Teknisk Skole, HTX (Maglelunden)</h2>
+                    </div>
+                </section>
+                <section className="flex items-center w-full h-full bg-blue-950 text-white">
+                    <h2 className="text-3xl text-center font-medium uppercase w-1/3">#</h2>
+                    <h2 className="text-3xl text-center font-medium uppercase w-1/3">afgang</h2>
+                    <h2 className="text-3xl text-center font-medium uppercase w-1/3">destination</h2>
                 </section>
             </li>
             {transport.map((route, i) => {
