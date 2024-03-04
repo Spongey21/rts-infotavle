@@ -4,7 +4,7 @@ import ClassSchedule from "./classSchedule"
 
 export default function Transport() {
     return (
-        <article className="w-3/5 h-full">
+        <article className="w-[58%] h-full">
             <ul className="flex w-full h-full capitalize">
                 <ClassSchedule course="gf1" />
                 <ClassSchedule course="wu" />

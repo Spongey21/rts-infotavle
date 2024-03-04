@@ -10,11 +10,7 @@ export default function Transport() {
 
     useEffect(() => {
         getData(setTransport)
-
-        console.log(transport);
     }, [])
-
-    console.log(transport);
 
     return (
         <ul className="w-full h-1/2 overflow-hidden">
@@ -26,8 +22,8 @@ export default function Transport() {
                         <h2 className="text-lg font-bold">Teknisk Skole, HTX (Maglelunden)</h2>
                     </div>
                 </section>
-                <section className="flex items-center h-1/2 w-full bg-blue-950 text-white">
-                    <h2 className="text-3xl text-center uppercase w-1/3">#</h2>
+                <section className="flex justify-center items-center h-1/2 w-full bg-blue-950 text-white">
+                    <h2 className="text-3xl text-center uppercase w-1/4">#</h2>
                     <h2 className="text-3xl text-center uppercase w-1/3">afgang</h2>
                     <h2 className="text-3xl text-center uppercase w-1/3">destination</h2>
                 </section>

@@ -11,7 +11,7 @@ export default function IndividualRoute({ id, arrTime, arrDest }) {
     useEffect(() => {
         (async () => {
             // progress slider from left to right
-            await animate(0, 100, {
+            await animate(0, 98, {
                 duration: unixInSeconds(arrTime),
                 onUpdate: length => {
                     // updates progress slider rgb(252,163,17)
@@ -39,9 +39,9 @@ export default function IndividualRoute({ id, arrTime, arrDest }) {
 
     return (
         <motion.article className="flex items-center justify-center w-full h-full text-black border-b-2 border-blue-950" ref={scope}>
-            <h1 className="text-4xl text-center w-1/3">{id}</h1>
-                <span className="text-4xl text-center w-1/3">{arrTime}</span>
-                <span className="text-4xl text-center w-1/3">{arrDest.split(',')[0]}</span>
+            <h1 className="text-3xl text-center w-1/4">{id}</h1>
+                <span className="text-3xl text-center w-1/3">{arrTime}</span>
+                <span className="text-3xl text-center w-1/3">{arrDest.split(',')[0]}</span>
         </motion.article>
     )
 }
