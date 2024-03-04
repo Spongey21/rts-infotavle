@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react"
 import IndividualRoute from "./individualRoute"
-import getData from "@/app/handlers/fetch"
 import { unixInSeconds } from "@/app/handlers/calcTime"
 
 export default function Transport() {
