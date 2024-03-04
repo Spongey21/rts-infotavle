@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ClassSchedule({ course }) {
+export default function IndividualSchedule({ course }) {
     const identification = [
         {
             abbreviation: "gf1",

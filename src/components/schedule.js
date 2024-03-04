@@ -1,20 +1,20 @@
 "use client"
 
-import ClassSchedule from "./classSchedule"
+import IndividualSchedule from "./individualSchedule"
 
 export default function Transport() {
     return (
         <article className="w-[58%] h-full">
             <ul className="flex w-full h-full capitalize">
-                <ClassSchedule course="gf1" />
-                <ClassSchedule course="wu" />
-                <ClassSchedule course="mg" />
-                <ClassSchedule course="dm" />
-                <ClassSchedule course="td" />
-                {/* <ClassSchedule course="soc" /> */}
-                <ClassSchedule course="brobyg" />
-                <ClassSchedule course="intro" />
-                <ClassSchedule course="amu" />
+                <IndividualSchedule course="gf1" />
+                <IndividualSchedule course="wu" />
+                <IndividualSchedule course="mg" />
+                <IndividualSchedule course="dm" />
+                <IndividualSchedule course="td" />
+                {/* <IndividualSchedule course="soc" /> */}
+                <IndividualSchedule course="brobyg" />
+                <IndividualSchedule course="intro" />
+                <IndividualSchedule course="amu" />
             </ul>
         </article>
     )
