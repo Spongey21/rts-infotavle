@@ -1,6 +1,6 @@
 "use client"
 
-import Clock from "./component/clock";
+import Clock from "../components/clock";
 import Schedule from '@/components/schedule'
 import Transport from "@/components/transport";
 import Image from "next/image";
