@@ -1,7 +1,6 @@
 "use client"
 
 import { unixInSeconds } from "@/app/handlers/calcTime"
-import getData from "@/app/handlers/fetch"
 import { motion, useAnimate } from "framer-motion"
 import { useEffect } from "react"
 
