@@ -1,6 +1,7 @@
 "use client"
 
 import { unixInSeconds } from "@/app/handlers/calcTime"
+import getData from "@/app/handlers/fetch"
 import { motion, useAnimate } from "framer-motion"
 import { useEffect } from "react"
 
@@ -10,7 +11,7 @@ export default function IndividualRoute({ id, arrTime, arrDest }) {
     useEffect(() => {
         (async () => {
             // progress slider from left to right
-            await animate(0, 102, {
+            await animate(0, 100, {
                 duration: unixInSeconds(arrTime),
                 onUpdate: length => {
                     // updates progress slider rgb(252,163,17)

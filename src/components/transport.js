@@ -1,30 +1,23 @@
 "use client"
 
-import { useEffect, useState } from "react";
-import IndividualRoute from "./individualRoute";
-import { unixInSeconds } from "@/app/handlers/calcTime";
+import { useEffect, useState } from "react"
+import IndividualRoute from "./individualRoute"
+import getData from "@/app/handlers/fetch"
+import { unixInSeconds } from "@/app/handlers/calcTime"
 
 export default function Transport() {
     const [transport, setTransport] = useState([])
 
     useEffect(() => {
-        (async () => {
-            // fetches location id
-            const res = await fetch(`//xmlopen.rejseplanen.dk/bin/rest.exe/location?input=Musicon (Maglelunden)&format=json`)
-            const data = await res.json()
+        getData(setTransport)
 
-            // fetches route information
-            const departureFetch = await fetch(`//xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=${data.LocationList.StopLocation[0].id}&format=json`);
-            const departureData = await departureFetch.json()
-
-            setTransport(departureData.DepartureBoard.Departure.filter(bus => {
-                if (bus.name == 'Bus 202A') { return { bus } }
-            }))
-        })()
+        console.log(transport);
     }, [])
 
+    console.log(transport);
+
     return (
-        <ul className="w-full h-1/2">
+        <ul className="w-full h-1/2 overflow-hidden">
             <li className="flex flex-col border-white h-[40%]">
                 <section className="flex items-center w-full h-1/2">
                     <img src="https://images.vexels.com/media/users/3/128933/isolated/preview/b54944f7322722034cfda55e601b4f8d-travel-bus-round-icon.png" height={80} width={80}></img>
@@ -40,7 +33,7 @@ export default function Transport() {
                 </section>
             </li>
             {transport.map((route, i) => {
-                if (i > 2 && unixInSeconds(route.time) > 0) return
+                if (unixInSeconds(route.time) <= 5) return
 
                 return <li key={i + route.id} className="h-[20%]">
                     <IndividualRoute
