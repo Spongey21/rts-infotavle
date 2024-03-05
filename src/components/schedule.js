@@ -11,7 +11,7 @@ export default function Transport() {
                 <IndividualSchedule course="mg" />
                 <IndividualSchedule course="dm" />
                 <IndividualSchedule course="td" />
-                {/* <IndividualSchedule course="soc" /> */}
+                <IndividualSchedule course="soc" />
                 <IndividualSchedule course="brobyg" />
                 <IndividualSchedule course="intro" />
                 <IndividualSchedule course="amu" />
