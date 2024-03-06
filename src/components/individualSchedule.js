@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 
 export default function IndividualSchedule({ course }) {
     function identifyCourse(year) {
+        if (course == 'gf1') return course
+        
         switch (year.toString()) {
             case '0':
                 return 'gf2'
@@ -96,7 +98,7 @@ export default function IndividualSchedule({ course }) {
             const data = await res.json()
 
             // finds course data
-            const filteredData = await data.filter(el => el.class.includes(key.id))
+            const filteredData = await data.filter(el => el.class.includes(key.id) && el.class)
 
             setSchedule(filteredData);
         })()
