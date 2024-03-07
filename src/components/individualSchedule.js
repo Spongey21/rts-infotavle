@@ -101,7 +101,7 @@ export default function IndividualSchedule({ course }) {
             const filteredData = await data.filter(el => el.class.includes(key.id) && el.class)
 
             // puts gf2 higher in array
-            filteredData.sort((a, b) => a.class.substring(0, 1) > b.class.substring(0, 1));
+            filteredData.sort((a, b) => a.class.substring(0, 1) - b.class.substring(0, 1));
 
             setSchedule(filteredData);
         })()
