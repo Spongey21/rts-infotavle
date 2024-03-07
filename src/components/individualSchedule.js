@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 export default function IndividualSchedule({ course }) {
     function identifyCourse(year) {
         if (course == 'gf1') return course
-        
+
         switch (year.toString()) {
             case '0':
                 return 'gf2'
@@ -98,7 +98,11 @@ export default function IndividualSchedule({ course }) {
             const data = await res.json()
 
             // finds course data
-            const filteredData = await data.filter(el => el.class.includes(key.id) && el.class)
+            let filteredData = await data.filter(obj => obj.class.includes(key.id))
+
+            if (course == 'gf1', course == 'soc' || course == 'brobyg' || course == 'intro' || course == 'amu') {
+                filteredData = filteredData.filter((obj, index) => filteredData.findIndex((item) => item.classroom === obj.classroom) === index)
+            }
 
             // puts gf2 higher in array
             filteredData.sort((a, b) => a.class.substring(0, 1) - b.class.substring(0, 1));
