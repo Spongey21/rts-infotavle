@@ -3,6 +3,8 @@
 import Clock from "../components/clock";
 import Schedule from '@/components/schedule'
 import Transport from "@/components/transport";
+import Weather from "@/components/weather";
+
 import Image from "next/image";
 
 export default function Home() {
@@ -14,8 +16,9 @@ export default function Home() {
       </header>
       <main className="h-[70vh] w-[96%] m-auto flex justify-between">
         <Schedule/>
-        <div className="float-right w-[40%] h-full">
+        <div className="float-right w-[40%] h-full flex flex-col gap-8">
           <Transport /> 
+          <Weather />
         </div>
       </main>
       <footer className="h-[15vh] w-[96%] m-auto flex justify-between items-center">
