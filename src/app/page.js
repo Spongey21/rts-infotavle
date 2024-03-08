@@ -6,13 +6,17 @@ import Transport from "@/components/transport";
 import Weather from "@/components/weather";
 
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+
 
 export default function Home() {
+  const searchParams = useSearchParams()
+
   return (
     <>
       <header className="h-[15vh] text-center capitalize flex flex-col justify-center">
         <h1 className="text-6xl">velkommen til pulsen 8</h1>
-        <h2 className="text-4xl">indgang A/B</h2>
+        <h2 className="text-4xl">indgang {searchParams.get('indgang').toUpperCase()}</h2>
       </header>
       <main className="h-[70vh] w-[96%] m-auto flex justify-between">
         <Schedule/>
