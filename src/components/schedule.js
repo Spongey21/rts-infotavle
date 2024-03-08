@@ -5,7 +5,7 @@ import IndividualSchedule from "./individualSchedule"
 export default function Transport() {
     return (
         <article className="w-[58%] h-full">
-            <ul className="flex w-full h-full capitalize">
+            <ul className="flex w-full h-full capitalize border-2 border-black">
                 <IndividualSchedule course="gf1" />
                 <IndividualSchedule course="wu" />
                 <IndividualSchedule course="mg" />
