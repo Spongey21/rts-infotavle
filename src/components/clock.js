@@ -3,30 +3,23 @@
 import { useEffect, useState } from "react"
 
 export default function Clock() {
-    const [time, setTime] = useState(null)
+    const [time, setTime] = useState([])
 
     useEffect(() => {
-        (async () => {
-            setInterval(() => {
-                let hours = new Date().getHours()                
-                let minutes = new Date().getMinutes()                
-                let seconds = new Date().getSeconds()
+        setInterval(() => {
+            let hours = new Date().getHours()
+            let minutes = new Date().getMinutes()
+            let seconds = new Date().getSeconds()
 
-                if (seconds < 10) {
-                    seconds = `0${seconds}`
-                }
 
-                if (minutes < 10) {
-                    minutes = `0${minutes}`
-                }
+            if (seconds < 10) seconds = `0${seconds}`
 
-                if (hours < 10) {
-                    hours = `0${hours}`
-                }
-                
-                setTime([hours, minutes, seconds])
-            }, 1000);
-        })()
+            if (minutes < 10) minutes = `0${minutes}`
+
+            if (hours < 10) hours = `0${hours}`
+
+            setTime([hours, minutes, seconds])
+        }, 1000);
     }, [])
 
     return (

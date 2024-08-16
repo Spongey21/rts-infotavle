@@ -25,7 +25,7 @@ export default function IndividualSchedule({ course }) {
                 return course
         }
     }
-
+     
     const identification = [
         {
             abbreviation: "gf1",
@@ -116,7 +116,7 @@ export default function IndividualSchedule({ course }) {
     return (
         <li className="basis-full h-full">
             <section className="flex flex-col items-center text-center h-full" style={{ backgroundColor: key.color + '66' }}>
-                <div className="flex flex-col justify-center text-white bg-blue-950 w-full h-1/6">
+                <div className="flex flex-col justify-center text-gray-50 bg-blue-950 w-full h-1/6">
                     <span className="text-3xl font-bold uppercase">{key.abbreviation}</span>
                     <span className="text-1xl font-bold capitalize">{key.name}</span>
                 </div>
